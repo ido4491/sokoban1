@@ -1,0 +1,23 @@
+	BufferedReader br = new BufferedReader(new StringReader(str));
+		int x=0,y=0;
+		double H = levelDisplayer.getHeight();
+		double W = levelDisplayer.getWidth();
+		double h = 10;//TODO
+		double w = 10;//TODO
+		GraphicsContext gc = levelDisplayer.getGraphicsContext2D();
+		String line;
+		try {
+			while ((line=br.readLine())!=null){
+				for(char c:line.toCharArray()){
+					if(c=='#')
+						gc.fillRect(x*w, y*h, w, h);
+					
+					x++;
+				}
+				x=0;
+				y++;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
